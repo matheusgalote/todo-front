@@ -3,12 +3,16 @@ import style from "./Login.module.css";
 
 import { USER_LOGIN } from "../../Helpers/api";
 import useFetch from "../../Hooks/useFetch";
+import { useNavigate, Link } from 'react-router-dom';
+
+import login from '../../Assets/login.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate('/tasks');
 
-  const { request, data } = useFetch();
+  const { data, request, status } = useFetch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +24,8 @@ const Login = () => {
 
     request(url, options);
 
-    if(data) {
+    if(status === 200) {
+      navigate('/todo/tasks');
       return data;
     }
   };
@@ -31,7 +36,7 @@ const Login = () => {
         <div className={style.card}>
           <form className={`ui form ${style.form}`} onSubmit={handleSubmit}>
             <div className="field">
-              <label>Usuário</label>
+              <label className={style.label}>Usuário</label>
               <input
                 type="text"
                 name="form"
@@ -40,7 +45,7 @@ const Login = () => {
               />
             </div>
             <div className="field">
-              <label>Senha</label>
+              <label className={style.label}>Senha</label>
               <input
                 type="password"
                 name="password"
@@ -51,7 +56,9 @@ const Login = () => {
             <button className="ui teal button">Entrar</button>
           </form>
         </div>
-        <div></div>
+        <div>
+          <img src={login} alt="login screen"/>
+        </div>
       </div>
     </section>
   );

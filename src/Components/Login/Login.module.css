@@ -5,12 +5,17 @@
 
 .card {
   height: 100vh;
-  background: #EDEDED;
+  width: 40rem;
+  background: #607EAA;
 }
 
 .form {
   padding-top: 20vh;
-  width: 30rem;
+  width: 25rem;
   display: block;
   margin: 0 auto;
+}
+
+.label {
+  color: #fff !important;
 }

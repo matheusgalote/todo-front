@@ -4,9 +4,7 @@ const Header = () => {
   return (
     <header>
       <div className="ui secondary  menu">
-        <a className="active item">Home</a>
-        <a className="item">Messages</a>
-        <a className="item">Friends</a>
+        <a className="active item">Tarefas</a>
         <div className="right menu">
           <div className="item">
             <div className="ui icon input">
@@ -14,7 +12,7 @@ const Header = () => {
               <i className="search link icon"></i>
             </div>
           </div>
-          <a className="ui item">Logout</a>
+          <a className="ui item">Sair</a>
         </div>
       </div>
     </header>
